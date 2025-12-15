@@ -60,7 +60,7 @@
             flex-direction: column;
             gap: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            width: 240px; /* Um pouco mais largo para caber nomes longos */
+            width: 240px;
             border: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -80,7 +80,6 @@
             color: #00ffcc;
             display: inline-block;
             pointer-events: none;
-            /* Adiciona reticências (...) se o nome for muito longo */
             text-overflow: ellipsis; 
             max-width: 100%;
         }
@@ -137,38 +136,45 @@
 
         @media (max-width: 768px) { .repo-buttons { flex-direction:column; } }
 
-        /* --- Overlay de Ativação de Áudio --- */
+        /* --- Overlay para ativar áudio --- */
         #activate-audio {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 20;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 30;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
+            flex-direction: column;
+            backdrop-filter: blur(8px);
+            cursor: pointer;
         }
 
         #activate-audio div {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: #000;
-            padding: 20px 40px;
-            border-radius: 12px;
+            padding: 25px 50px;
+            border-radius: 15px;
             text-align: center;
+            font-size: 22px;
             font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        #activate-audio p {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-    <!-- Overlay de ativação (aparece no início) -->
+    <!-- Overlay inicial para desbloquear áudio -->
     <div id="activate-audio">
-        <div>Clique aqui para ativar o áudio da página</div>
+        <div>🎵 ATIVAR ÁUDIO 🎵</div>
+        <p>Clique aqui para iniciar a rádio</p>
     </div>
 
     <div id="radio-controls">
@@ -205,14 +211,17 @@
         <div class="social-box">
             <p>Redes Sociais</p>
             <div class="social-links">
-                <a href="https://github.com/AmuPii">GitHub</a>  <a href="https://x.com/zNarutoPvP">X</a>  <a href="https://www.instagram.com/">Instagram</a>  <a href="https://www.linkedin.com/in/herickamupi/">Linkedin</a> <a href="https://youtube.com/@znarutopvp9735?si=Uz67-RLw2Sn8B6S-">Youtube</a>
+                <a href="https://github.com/AmuPii">GitHub</a>
+                <a href="https://x.com/zNarutoPvP">X</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+                <a href="https://www.linkedin.com/in/herickamupi/">Linkedin</a>
+                <a href="https://youtube.com/@znarutopvp9735?si=Uz67-RLw2Sn8B6S-">Youtube</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // === LISTA DE ARQUIVOS (Raw List) ===
-        // Colei sua lista exata aqui. O script abaixo vai limpar os nomes.
+        // === LISTA DE ARQUIVOS ===
         const rawFiles = [
             "%24werve%20x%20Grioten%20x%20DAY%24OKEE%20-%20MUDD%20%5BAMV%5D.mp4",
             "2hollis%20-%20Poster%20Boy%20(best%20part%20looped%20%2B%20slowed).mp4",
@@ -284,17 +293,14 @@
             "%D0%A6%D0%B5%D0%BB%D1%83%D0%B9%20%D0%9C%D0%B5%D0%BD%D1%8F%20(Hardstyle%20Remix)%20(OUT%20ON%20ALL%20PLATFORMS).mp4"
         ];
 
-        // Processa a lista para criar objetos bonitos
         const playlist = rawFiles.map(filename => {
             return {
-                // Decodifica %20 para espaço e remove a extensão .mp4 para exibição
                 title: decodeURIComponent(filename).replace(/\.mp4$/i, ""),
-                // Mantém o nome original para o arquivo, adicionando a pasta 'music/'
                 file: "music/" + filename
             };
         });
 
-        // Elementos do DOM
+        // Elementos DOM
         const songTitleEl = document.getElementById("song-title");
         const btnPrev = document.getElementById("btn-prev");
         const btnNext = document.getElementById("btn-next");
@@ -307,28 +313,25 @@
         let isMuted = false;
         const audio = new Audio();
 
-        // Ativa o áudio ao clicar no overlay (desbloqueia a política do navegador)
-        activateAudio.addEventListener("click", function() {
-            activateAudio.style.display = "none";
-            // Opcional: Toca um som silencioso para "desbloquear" se necessário, mas o clique já basta na maioria dos casos
-        });
-
         function loadTrack(index) {
             const track = playlist[index];
             audio.src = track.file;
-            songTitleEl.textContent = track.title; // Mostra o nome limpo
+            songTitleEl.textContent = track.title;
             audio.load();
+        }
+
+        function playAudio() {
+            audio.play().then(() => {
+                isPlaying = true;
+                btnPlayPause.textContent = "❚❚";
+            }).catch(err => {
+                console.log("Erro ao reproduzir:", err);
+            });
         }
 
         function togglePlayPause() {
             if (audio.paused) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    btnPlayPause.textContent = "❚❚";
-                }).catch(err => {
-                    console.log("Erro de reprodução:", err);
-                    alert("Tente clicar no botão novamente ou interaja mais com a página!");
-                });
+                playAudio();
             } else {
                 audio.pause();
                 isPlaying = false;
@@ -339,13 +342,13 @@
         function nextTrack() {
             currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) togglePlayPause();
+            if (isPlaying) playAudio();
         }
 
         function prevTrack() {
             currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) togglePlayPause();
+            if (isPlaying) playAudio();
         }
 
         function toggleMute() {
@@ -354,15 +357,24 @@
             btnVol.textContent = isMuted ? "🔇" : "🔊";
         }
 
+        // === CLIQUE NO OVERLAY: DESBLOQUEIA E JÁ TOCA A PRIMEIRA MÚSICA ===
+        activateAudio.addEventListener("click", function() {
+            activateAudio.style.display = "none";
+
+            loadTrack(0);
+            playAudio();
+        });
+
+        // Eventos dos botões
         btnPlayPause.addEventListener("click", togglePlayPause);
         btnNext.addEventListener("click", nextTrack);
         btnPrev.addEventListener("click", prevTrack);
         btnVol.addEventListener("click", toggleMute);
         audio.addEventListener("ended", nextTrack);
 
-        // Inicializa
-        loadTrack(currentTrackIndex);
-
+        // Carrega a primeira música (mas só toca após o clique no overlay)
+        loadTrack(0);
+        songTitleEl.textContent = playlist[0].title;
     </script>
 </body>
 </html>
