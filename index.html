@@ -3,135 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página - AmuPii</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            overflow-x: hidden;
-            background: #000;
-        }
-
-        /* --- BACKGROUND (GIF) --- */
-        #background-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        #gif-background {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-
-        /* --- ELEMENTOS DO SITE --- */
-        header { 
-            width: 100%; 
-            text-align: center; 
-            padding: 40px 20px; 
-            z-index: 1; 
-        }
-        .top-button { 
-            background:#fff; 
-            color:#000; 
-            padding:15px 30px; 
-            font-size:18px; 
-            border:none; 
-            border-radius:8px; 
-            text-decoration:none; 
-            font-weight:bold; 
-        }
-        .top-button:hover { 
-            background:#ddd; 
-        }
-
-        .middle-box { 
-            background:rgba(17,17,17,0.7); 
-            padding:40px; 
-            border-radius:12px; 
-            text-align:center; 
-            max-width:600px; 
-            width:90%; 
-            box-shadow:0 0 20px rgba(255,255,255,0.1); 
-            z-index:1; 
-            backdrop-filter:blur(5px); 
-        }
-        .middle-box h2 { 
-            margin-bottom:30px; 
-            font-size:24px; 
-        }
-        .repo-buttons { 
-            display:flex; 
-            flex-wrap:wrap; 
-            gap:15px; 
-            justify-content:center; 
-        }
-        .repo-btn { 
-            background:#333; 
-            color:#fff; 
-            padding:12px 25px; 
-            border:1px solid #555; 
-            border-radius:8px; 
-            text-decoration:none; 
-        }
-        .repo-btn:hover { 
-            background:#555; 
-        }
-
-        footer { 
-            width:100%; 
-            text-align:center; 
-            padding:30px 20px; 
-            z-index:1; 
-        }
-        .social-box { 
-            background:rgba(17,17,17,0.7); 
-            padding:20px; 
-            border-radius:12px; 
-            display:inline-block; 
-            box-shadow:0 0 20px rgba(255,255,255,0.1); 
-            backdrop-filter:blur(5px); 
-        }
-        .social-links { 
-            display:flex; 
-            gap:20px; 
-            justify-content:center; 
-            margin-top:10px; 
-        }
-        .social-links a { 
-            color:#fff; 
-            font-size:24px; 
-            text-decoration:none; 
-        }
-
-        @media (max-width: 768px) { 
-            .repo-buttons { 
-                flex-direction:column; 
-            } 
-        }
-    </style>
+    <title>Portfólio - AmuPii</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -140,29 +16,224 @@
     </div>
     <div class="overlay"></div>
 
-    <header>
-        <a href="https://amupii.github.io/" class="top-button">Meu Link Principal</a>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#carreira">Carreira</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
-    <section class="middle-box">
-        <h2>Meus Projetos</h2>
-        <div class="repo-buttons">
-            <a href="https://github.com/AmuPii/ExperimentandoDB" class="repo-btn">Teste de DataBase</a>
-            <a href="https://github.com/AmuPii/ytbdownloadscript" class="repo-btn">Projeto Downloader de youtube</a>
-        </div>
-    </section>
+    <div class="container">
+        
+        <section id="home" class="hero">
+            <h1>Olá, sou o AmuPii</h1>
+            <p>DEV | Creator | Tech Enthusiast</p>
+            <a href="https://github.com/AmuPii" class="hero-btn"><i class="fab fa-github"></i> Ver meu GitHub</a>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://avatars.githubusercontent.com/u/69117123?v=4" alt="Foto de AmuPii">
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        Sou apaixonado por tecnologia e desenvolvimento. Atualmente estou focando meus estudos em automação e banco de dados.
+                        Gosto de criar scripts que facilitam o dia a dia e compartilhar meu aprendizado com precisar.
+                    </p>
+                    
+                    <h3 style="margin-top: 20px;">Habilidades</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Generative IA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="carreira">
+            <h2>Minha Trajetória</h2>
+            <p style="margin-bottom: 40px;">
+                Aqui está um resumo da minha evolução profissional e acadêmica. 
+                Sempre buscando novos desafios e aprendendo tecnologias que resolvem problemas reais.
+            </p>
+
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <span class="timeline-date"> 2025 - Atualmente</span>
+                    <div class="timeline-content">
+                        <h3>Desenvolvedor & Criador de Conteúdo</h3>
+                        <p>Foco total em projetos de automação com Python, Web Scraping e ajudo na criação de conteúdo educativo de games no YouTube. Aprofundando estudos em SQL e Banco de Dados e Machine Learning.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2020 - 2023</span>
+                    <div class="timeline-content">
+                        <h3>Início na Programação</h3>
+                        <p>Comecei meus estudos sérios em lógica de programação e Python. Desenvolvi meus primeiros scripts para automatizar tarefas repetitivas porém não dei continuidade até 2023. onde estava no fim da escola e decidi focar e decidir como prosseguir na vida .</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2017 - 2020</span>
+                    <div class="timeline-content">
+                        <h3>Buscando encontrar meu sonho.</h3>
+                        <p>Foi nesse período que comecei a explorar diferentes áreas e descobrir o que realmente me motiva. python estava sendo uma das linguagens que mais me interessava. porém não inciava por medo</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2>Meus Projetos <small style="font-size: 0.5em; font-weight: normal;">(Arraste para o lado)</small></h2>
+            
+            <div class="slider-container">
+                <div class="slider">
+                    
+                    <div class="project-card">
+                        <h3>Experimentando DB</h3>
+                        <p>Um projeto focado em testes e aprendizado sobre manipulação de Banco de Dados. Testes de queries e estrutura.</p>
+                        <a href="https://github.com/AmuPii/ExperimentandoDB" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Código
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>YouTube Downloader</h3>
+                        <p>Script de automação para realizar downloads de vídeos do YouTube de forma prática e rápida.</p>
+                        <a href="https://github.com/AmuPii/ytbdownloadscript" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Código
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Meu Portfólio</h3>
+                        <p>Este site que você está vendo! Feito com HTML, CSS e hospedado no GitHub Pages.</p>
+                        <a href="https://github.com/AmuPii/AmuPii.github.io" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Código
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>App de WebScraping</h3>
+                        <p>WebAPP de Scraping Feito com HTML, CSS e Python. Utilizando bibliotecas como requests e beautifulsoup.</p>
+                        <a href="https://github.com/AmuPii/WEB-APP-Scraping-python" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Código
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="ferramentas">
+            <h2>Ferramentas que Utilizo</h2>
+            <p>Minha stack tecnológica e softwares do dia a dia.</p>
+            
+            <div class="tools-grid">
+                
+                <div class="tool-card">
+                    <i class="fas fa-robot tool-icon"></i>
+                    <h3>Gemini Pro</h3>
+                    <p>IA avançada do Google que utilizo para auxílio lógico, refatoração de código e brainstorming.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-wind tool-icon"></i>
+                    <h3>Windsurf</h3>
+                    <p>IDE moderna focada em fluxo (flow), integrando IA para agilizar o desenvolvimento.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-code tool-icon"></i>
+                    <h3>VS Code</h3>
+                    <p>Editor de código leve e extensível, minha base principal para edição de textos e scripts.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-git-alt tool-icon"></i>
+                    <h3>Git</h3>
+                    <p>Sistema de controle de versão essencial para gerenciar o histórico dos meus projetos.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-python tool-icon"></i>
+                    <h3>Python</h3>
+                    <p>Minha linguagem principal para automação, scripts, backend e análise de dados.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-database tool-icon"></i>
+                    <h3>PostgreSQL</h3>
+                    <p>Sistema de banco de dados relacional robusto que utilizo para persistência de dados.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-html5 tool-icon"></i>
+                    <h3>HTML 5</h3>
+                    <p>Linguagem de marcação utilizada para estruturar todo o conteúdo das minhas páginas web.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-css3-alt tool-icon"></i>
+                    <h3>CSS 3</h3>
+                    <p>Linguagem de estilo usada para dar vida, cores e layout responsivo aos meus projetos.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-js tool-icon"></i>
+                    <h3>JavaScript</h3>
+                    <p>Linguagem que adiciona interatividade, lógica e dinamismo aos elementos da web.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-laptop-code tool-icon"></i>
+                    <h3>PyCharm</h3>
+                    <p>IDE robusta específica para Python, ideal para grandes projetos e debugging complexo.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-book-open tool-icon"></i>
+                    <h3>Jupyter</h3>
+                    <p>Ambiente interativo essencial para ciência de dados, testes rápidos e documentação de código.</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fab fa-microsoft tool-icon"></i>
+                    <h3>Office</h3>
+                    <p>Conjunto de ferramentas (Excel, Word) para documentação, planilhas e organização geral.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contato" style="text-align: center;">
+            <h2>Redes Sociais</h2>
+            <p>Me encontre nas redes sociais abaixo:</p>
+            <div class="social-links">
+                <a href="https://github.com/AmuPii" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/zNarutoPvP" title="X / Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/herickamupi/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/@znarutopvp9735?si=Uz67-RLw2Sn8B6S-" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </section>
+
+    </div>
 
     <footer>
-        <div class="social-box">
-            <p>Redes Sociais</p>
-            <div class="social-links">
-                <a href="https://github.com/AmuPii">GitHub</a>
-                <a href="https://x.com/zNarutoPvP">X</a>
-                <a href="https://www.instagram.com/">Instagram</a>
-                <a href="https://www.linkedin.com/in/herickamupi/">Linkedin</a>
-                <a href="https://youtube.com/@znarutopvp9735?si=Uz67-RLw2Sn8B6S-">Youtube</a>
-            </div>
-        </div>
+        <p>&copy; 2024 AmuPii - Desenvolvido com GitHub Pages</p>
     </footer>
 
 </body>
