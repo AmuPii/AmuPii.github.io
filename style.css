@@ -396,3 +396,183 @@ footer {
     line-height: 1.4;
     margin: 0;
 }
+/* --- THEME VARIABLES & LIGHT MODE OVERRIDES --- */
+
+/* --- THEME VARIABLES & LIGHT MODE OVERRIDES --- */
+:root {
+    --bg: #000;
+    --text: #fff;
+    --muted: #ccc;
+    --nav-bg: rgba(0, 0, 0, 0.9);
+    --section-bg: rgba(17,17,17,0.85);
+    --card-bg: rgba(255,255,255,0.05);
+    --border-color: rgba(255,255,255,0.1);
+    --accent: #00bcd4;
+    --accent-glow: rgba(0,188,212,0.4);
+    --overlay-grad: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0,0,0,0.5));
+    /* tag / skill pill colors */
+    --tag-bg: #333;
+    --tag-text: #fff;
+    --tag-border: #555;
+    /* footer bg */
+    --footer-bg: rgba(0,0,0,0.9);
+    /* contact section/button defaults */
+    --contato-section-bg: var(--section-bg);
+    --contato-btn-bg: var(--card-bg);
+    --contato-btn-text: var(--text);
+    --contato-btn-border: var(--border-color);
+}
+
+/* Light theme overrides (applied to body.light-mode) */
+.light-mode {
+    --bg: #f6f7f9;
+    --text: #111;
+    --muted: #4a4a4a;
+    --nav-bg: rgba(255,255,255,0.95);
+    --section-bg: rgba(255,255,255,0.9);
+    --card-bg: rgba(0,0,0,0.03);
+    --border-color: rgba(0,0,0,0.08);
+    --accent: #0066cc;
+    --accent-glow: rgba(0,102,204,0.15);
+    --overlay-grad: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+    --tag-bg: #f0f4fb;
+    --tag-text: #111;
+    --tag-border: rgba(0,0,0,0.08);
+    --footer-bg: rgba(255,255,255,0.95);
+    /* contact section/button for light mode */
+    --contato-section-bg: rgba(255,255,255,0.95);
+    --contato-btn-bg: #ffffff;
+    --contato-btn-text: #111;
+    --contato-btn-border: rgba(0,0,0,0.08);
+}
+
+/* apply variables */
+body {
+    color: var(--text);
+    background: var(--bg);
+}
+
+.overlay {
+    background: var(--overlay-grad);
+}
+
+nav {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+nav a { color: var(--text); }
+nav a:hover { color: var(--accent); }
+
+.header-counter {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1001;
+}
+.header-counter img { height: 30px; display: block; }
+
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+#theme-toggle:hover {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+section { background: var(--section-bg); border: 1px solid var(--border-color); }
+h2 { border-left-color: var(--accent); color: var(--text); }
+.hero p { color: var(--muted); }
+.hero-btn { background: var(--accent); color: var(--bg); }
+.about-image img { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+.timeline { border-left-color: var(--accent); }
+.timeline-item::before { background-color: var(--bg); border-color: var(--accent); }
+.timeline-item:hover::before { box-shadow: 0 0 10px var(--accent); background-color: var(--accent); }
+.timeline-date { background: var(--accent); color: var(--bg); }
+.timeline-content { background: var(--card-bg); border-color: var(--border-color); }
+.timeline-content p { color: var(--muted); }
+.project-card { background: var(--card-bg); }
+.project-card h3 { color: var(--accent); }
+.repo-btn { border-color: var(--accent); color: var(--accent); }
+.repo-btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 15px var(--accent-glow); }
+.tool-card { background: var(--card-bg); border-color: var(--border-color); }
+.tool-card:hover { border-color: var(--accent); box-shadow: 0 5px 15px var(--accent-glow); }
+.tool-icon { color: var(--accent); }
+.tool-card h3, .tool-card p { color: var(--text); }
+.social-links a:hover { color: var(--accent); }
+
+/* Fixes for light-mode elements that had hardcoded dark colors */
+.skill-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--tag-border);
+}
+
+.timeline-content h3 { color: var(--text); }
+.social-links a { color: var(--text); }
+footer { background: var(--footer-bg); }
+
+/* Contato section (themed) */
+.contato-section {
+    /* Keep the same structure as other sections while using theme variables */
+    text-align: center;
+    padding: 40px;
+    color: var(--text);
+    font-family: inherit;
+}
+
+.contato-header h2 {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.contato-header p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.contato-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 20px;
+    background: var(--contato-btn-bg);
+    color: var(--contato-btn-text);
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid var(--contato-btn-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contato-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}

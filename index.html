@@ -7,9 +7,9 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     
     <div id="background-container">
@@ -26,19 +26,24 @@
             <li><a href="#contato">Contato</a></li>
         </ul>
         <div class="header-counter">
+            <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
             <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Famupii.github.io%2F&label=Visitantes&icon=people-fill&color=%23fff&message=&style=for-the-badge&tz=America%2FSao_Paulo" alt="Contador de Visitas">
         </div>
+        
     </nav>
 
     <div class="container">
         
         <section id="home" class="hero">
-            <h1>Olá, sou o AmuPii</h1>
-            <p>DEV | Creator | Tech Enthusiast</p>
+            <h1>Olá, sou o Herick</h1>
+            <p>Também conhecido como AmuPii</p>
+            <p>DEV | Gamer | Tech Enthusiast</p>
             <a href="https://github.com/AmuPii" class="hero-btn"><i class="fab fa-github"></i> Ver meu GitHub</a>
         </section>
 
-        <section id="sobre">
+        <section id="sobre" style="text-align: center;">
             <h2>Sobre Mim</h2>
             
             <div class="about-container">
@@ -48,9 +53,10 @@
 
                 <div class="about-text">
                     <p>
-                        Sou apaixonado por tecnologia e desenvolvimento. Atualmente estou focando meus estudos em automação e banco de dados.
-                        Gosto de criar scripts que facilitam o dia a dia e Ensinar as pessoas com meus conhecimentos mostrando na pratica como resolver problemas reais.
+                        Sou apaixonado por tecnologia e desenvolvimento. Formado como Técnico em Informática e Cursando Inteligencia Artificial. Atualmente estou focando meus estudos em Python e Dados.
+                        Estou em constante evolução, buscando aprimoramento técnico por meio do estudo contínuo de novas tecnologias, ferramentas e padrões de arquitetura.
                     </p>
+                    <p>Aprender faz parte do processo — evoluir é parte do trabalho.</p>
                     
                     <h3 style="margin-top: 20px;">Habilidades</h3>
                     <div class="skills-list">
@@ -58,13 +64,15 @@
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">HTML/CSS</span>
                         <span class="skill-tag">Git/GitHub</span>
-                        <span class="skill-tag">Generative IA</span>
+                        <span class="skill-tag">IA Engineering</span>
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">Backend</span>
                     </div>
                 </div>
             </div>
         </section>
 
-<section id="carreira">
+<section id="carreira" style="text-align: center;">
             <h2>Minha Trajetória</h2>
             <p style="margin-bottom: 40px;">
                 Aqui está um resumo da minha evolução profissional e acadêmica. 
@@ -74,33 +82,33 @@
             <div class="timeline">
                 
                 <div class="timeline-item">
-                    <span class="timeline-date"> 2025 - Atualmente</span>
+                    <span class="timeline-date"> 2025 -> Atualmente</span>
                     <div class="timeline-content">
                         <h3>Desenvolvedor</h3>
-                        <p>Foco total em projetos de automação com Python, Web Scraping e ajudo na criação aplicativos, Atualmente Aprofundando estudos em SQL e Banco de Dados e API's.</p>
+                        <p>Foco total em projetos de automação com Python, Web Scraping e criação aplicativos, Atualmente Aprofundando estudos em Dados e API's.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="timeline-date">2020 - 2023</span>
+                    <span class="timeline-date">2020 -> 2023</span>
                     <div class="timeline-content">
                         <h3>Início na Programação</h3>
-                        <p>Comecei meus estudos sérios em lógica de programação e Python. Desenvolvi meus primeiros scripts para automatizar tarefas repetitivas porém não dei continuidade até 2023. onde estava no fim da escola e decidi focar e decidir como prosseguir na vida .</p>
+                        <p>Comecei meus estudos sérios em lógica de Programação e Python. Desenvolvi meus primeiros scripts para automatizar tarefas repetitivas porém não dei continuidade até 2023. onde estava no fim da escola e decidi focar e decidir como prosseguir na carreira .</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="timeline-date">2017 - 2020</span>
+                    <span class="timeline-date">2017 -> 2020</span>
                     <div class="timeline-content">
                         <h3>Buscando encontrar meu sonho.</h3>
-                        <p>Foi nesse período que comecei a explorar diferentes áreas e descobrir o que realmente me motiva. python estava sendo uma das linguagens que mais me interessava. porém não inciava por medo</p>
+                        <p>Foi nesse período que comecei a explorar diferentes áreas e descobrir o que realmente me motiva. python estava sendo uma das linguagens que mais me interessava. porém não inciava por medo.</p>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section id="projetos">
+        <section id="projetos" style="text-align: center;">
             <h2>Meus Projetos <small style="font-size: 0.5em; font-weight: normal;">(Arraste para o lado)</small></h2>
             
             <div class="slider-container">
@@ -110,38 +118,62 @@
                         <h3>Experimentando DB</h3>
                         <p>Um projeto focado em testes e aprendizado sobre manipulação de Banco de Dados. Testes de queries e estrutura.</p>
                         <a href="https://github.com/AmuPii/ExperimentandoDB" class="repo-btn">
-                            <i class="fas fa-code"></i> Ver Código
+                            <i class="fas fa-code"></i> Ver Github
                         </a>
                     </div>
 
                     <div class="project-card">
                         <h3>YouTube Downloader</h3>
-                        <p>Script de automação para realizar downloads de vídeos do YouTube de forma prática e rápida.</p>
+                        <p>Script de API e Automação. para realizar downloads de vídeos do YouTube e Outras plataformas de forma prática e rápida.</p>
                         <a href="https://github.com/AmuPii/ytbdownloadscript" class="repo-btn">
-                            <i class="fas fa-code"></i> Ver Código
+                            <i class="fas fa-code"></i> Ver Github
                         </a>
                     </div>
 
                     <div class="project-card">
                         <h3>Meu Portfólio</h3>
-                        <p>Este site que você está vendo! Feito com HTML, CSS e hospedado no GitHub Pages.</p>
+                        <p>Este site que você está vendo! Feito com HTML, CSS, JS e hospedado no GitHub Pages.</p>
                         <a href="https://github.com/AmuPii/AmuPii.github.io" class="repo-btn">
-                            <i class="fas fa-code"></i> Ver Código
+                            <i class="fas fa-code"></i> Ver Github
                         </a>
                     </div>
 
                     <div class="project-card">
                         <h3>App de WebScraping</h3>
-                        <p>WebAPP de Scraping Feito com HTML, CSS e Python. Utilizando bibliotecas como requests e beautifulsoup.</p>
+                        <p>WebAPP de Scraping Feito com HTML, CSS e Python Web. Utilizando bibliotecas como "requests" e "beautifulsoup".</p>
                         <a href="https://github.com/AmuPii/WEB-APP-Scraping-python" class="repo-btn">
-                            <i class="fas fa-code"></i> Ver Código
+                            <i class="fas fa-code"></i> Ver Github
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Curso de Aprendizado Python</h3>
+                        <p>Material de estudo e exercícios realizados Aprendendo A Programar e Automatizar do Zero com Python.</p>
+                        <a href="https://github.com/AmuPii/Aprendizado-Python-automatico" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Github
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>FreeCodeCamp Aprendizado</h3>
+                        <p>Bootcamp Aprendendo à Programar em Python com FreeCodeCamp.</p>
+                        <a href="https://github.com/AmuPii/FreeCodeCamp-Aprendizado" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Github
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Gerador de Qrcode Simples</h3>
+                        <p>Material de Aprendizado Experiemntando um Gerador de QRCODE .</p>
+                        <a href="https://github.com/AmuPii/Gerador-de-QRcode-Simples" class="repo-btn">
+                            <i class="fas fa-code"></i> Ver Github
                         </a>
                     </div>
 
                 </div>
             </div>
         </section>
-        <section id="ferramentas">
+        <section id="ferramentas" style="text-align: center;">
             <h2>Ferramentas que Utilizo</h2>
             <p>Minha stack tecnológica e softwares do dia a dia.</p>
             
@@ -150,7 +182,7 @@
                 <div class="tool-card">
                     <i class="fas fa-robot tool-icon"></i>
                     <h3>Gemini Pro</h3>
-                    <p>IA avançada do Google que utilizo para auxílio lógico, refatoração de código e brainstorming.</p>
+                    <p>IA avançada do Google que utilizo para auxílio lógico, refatoração e brainstorming.</p>
                 </div>
 
                 <div class="tool-card">
@@ -162,7 +194,7 @@
                 <div class="tool-card">
                     <i class="fas fa-code tool-icon"></i>
                     <h3>VS Code</h3>
-                    <p>Editor de código leve e extensível, minha base principal para edição de textos e scripts.</p>
+                    <p>Editor de código leve e extensível, minha base principal.</p>
                 </div>
 
                 <div class="tool-card">
@@ -174,13 +206,13 @@
                 <div class="tool-card">
                     <i class="fab fa-python tool-icon"></i>
                     <h3>Python</h3>
-                    <p>Minha linguagem principal para automação, scripts, backend e análise de dados.</p>
+                    <p>Minha linguagem principal para Automação, Scripts, Backend e Dados.</p>
                 </div>
 
                 <div class="tool-card">
                     <i class="fas fa-database tool-icon"></i>
                     <h3>PostgreSQL</h3>
-                    <p>Sistema de banco de dados relacional robusto que utilizo para persistência de dados.</p>
+                    <p>Sistema de banco de dados relacional robusto que aprendi a utilizar para persistência de dados.</p>
                 </div>
 
                 <div class="tool-card">
@@ -209,8 +241,8 @@
 
                 <div class="tool-card">
                     <i class="fas fa-book-open tool-icon"></i>
-                    <h3>Jupyter</h3>
-                    <p>Ambiente interativo essencial para ciência de dados, testes rápidos e documentação de código.</p>
+                    <h3>Django</h3>
+                    <p>Framework web Python que utilizo para desenvolvimento rápido e eficiente de aplicações web.</p>
                 </div>
 
                 <div class="tool-card">
@@ -221,6 +253,27 @@
 
             </div>
         </section>
+
+        <section id="Contato" class="contato-section" >
+    <div class="contato-header">
+        <h2>Contato</h2>
+        <p>Vamos conversar sobre seu próximo projeto</p>
+    </div>
+
+    <div class="contato-links">
+        <a href="https://www.google.com/maps/place/Belo+Horizonte+-+MG" target="_blank" class="contato-btn">
+            📍 Localização - Belo Horizonte
+        </a>
+        
+        <a href="mailto:herickao.luis@gmail.com" class="contato-btn">
+            ✉️ Enviar Email
+        </a>
+        
+        <a href="https://www.linkedin.com/in/herickamupi/" title="LinkedIn" target="_blank" class="contato-btn">
+            💼 Meu LinkedIn
+        </a>
+    </div>
+</section>
 
         <section id="contato" style="text-align: center;">
             <h2>Redes Sociais</h2>

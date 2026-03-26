@@ -33,4 +33,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const walk = (x - startX) * 2; // Velocidade do scroll (aumente o 2 se quiser mais rápido)
         slider.scrollLeft = scrollLeft - walk;
     });
+    // --- THEME TOGGLE (dark / light) ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+            if (themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
+            if (themeToggle) { themeToggle.setAttribute('aria-pressed', 'true'); themeToggle.title = 'Ativar modo escuro'; }
+        } else {
+            document.body.classList.remove('light-mode');
+            if (themeIcon) { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); }
+            if (themeToggle) { themeToggle.setAttribute('aria-pressed', 'false'); themeToggle.title = 'Ativar modo claro'; }
+        }
+    }
+
+    // Load saved theme or system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        applyTheme(prefersLight ? 'light' : 'dark');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            const newTheme = isLight ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
 });
